@@ -1,0 +1,23 @@
+.dragarea {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 50%;
+    height: 500px;
+    border: 1px solid black;
+    position: relative;
+   
+}
+
+.textarea {
+    width: 100%;
+    height: 100px;
+}
+
+.textbox {
+    position: absolute;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: white;
+    width: 600px;
+
+}
