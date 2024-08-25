@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useState } from 'react';
+import Toolbar from './Toolbar';
+import Canvas from './Canvas';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+const App = () => {
+  const [isPreviewMode, setIsPreviewMode] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DndProvider backend={HTML5Backend}>
+      <div>
+        <Toolbar />
+        <button onClick={() => setIsPreviewMode(!isPreviewMode)}>
+          {isPreviewMode ? 'Edit Mode' : 'Preview Mode'}
+        </button>
+        <Canvas isPreviewMode={isPreviewMode} />
+      </div>
+    </DndProvider>
   );
-}
+};
 
 export default App;
